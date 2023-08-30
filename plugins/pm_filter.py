@@ -60,6 +60,13 @@ async def rename(bot,update):
 	await update.message.reply_text("»»——— 𝙋𝙡𝙚𝙖𝙨𝙚 𝙚𝙣𝙩𝙚𝙧 𝙣𝙚𝙬 𝙛𝙞𝙡𝙚 𝙣𝙖𝙢𝙚...",	
 	reply_to_message_id=update.message.reply_to_message.id,  
 	reply_markup=ForceReply(True))  
+
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def pv_filter(client, message):
+    kd = await manual_filters(client, message)
+    if kd == False:
+        await auto_filter(client, message)
+	    
 # Born to make history @LazyDeveloper !
 @Client.on_callback_query(filters.regex("upload"))
 async def doc(bot, update):
