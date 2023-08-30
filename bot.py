@@ -2,11 +2,11 @@ import logging
 import logging.config
 # Credit @LazyDeveloper.
 # Please Don't remove credit.
-# Born to make history @LazyDeveloper !
+# Born to make history @wtfshourya !
 # Thank you LazyDeveloper for helping us in this Journey
-# 🥰  Thank you for giving me credit @LazyDeveloperr  🥰
-# for any error please contact me -> telegram@LazyDeveloperr or insta @LazyDeveloperr 
-# rip paid developers 🤣 - >> No need to buy paid source code while @LazyDeveloperr is here 😍😍
+# 🥰  Thank you for giving me credit @wtfshourya  🥰
+# for any error please contact me -> telegram@wtfshourya or insta @wtfshourya 
+# rip paid developers 🤣 - >> No need to buy paid source code while @wtfshourya is here 😍😍
 # Get logging configurations
 import sys
 import glob
