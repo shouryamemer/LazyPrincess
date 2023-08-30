@@ -115,7 +115,7 @@ if HAS_SSL:
     URL = "https://{}/".format(FQDN)
 else:
     URL = "http://{}/".format(FQDN)
-REPO_OWNER = "LazyDeveloperr"
+REPO_OWNER = "SHOURYA"
 
 # Auto Delete For Group Message (Self Delete) #
 SELF_DELETE_SECONDS = int(environ.get('SELF_DELETE_SECONDS', 300))
@@ -125,11 +125,11 @@ if SELF_DELETE == "True":
 
 # Download Tutorial Button #
 DOWNLOAD_TEXT_NAME = "📥 HOW TO DOWNLOAD 📥"
-DOWNLOAD_TEXT_URL = "https://t.me/LazyDeveloper"
+DOWNLOAD_TEXT_URL = "https://t.me/backupvibecasm"
 
 # Custom Caption Under Button #
 CAPTION_BUTTON = "Get Updates"
-CAPTION_BUTTON_URL = "https://t.me/LazyDeveloper"
+CAPTION_BUTTON_URL = "https://t.me/backupvibecasm"
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
 LOG_STR += ("IMDB Results are enabled, Bot will be showing imdb details for you queries.\n" if IMDB else "IMBD Results are disabled.\n")
@@ -142,8 +142,8 @@ LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 # Credit @LazyDeveloper.
 # Please Don't remove credit.
-# Born to make history @LazyDeveloper !
+# Born to make history @wtfshourya !
 # Thank you LazyDeveloper for helping us in this Journey
 # 🥰  Thank you for giving me credit @LazyDeveloperr  🥰
-# for any error please contact me -> telegram@LazyDeveloperr or insta @LazyDeveloperr 
-# rip paid developers 🤣 - >> No need to buy paid source code while @LazyDeveloperr is here 😍😍
+# for any error please contact me -> @wtfshoury or insta @SHOURYAMEMER
+# rip paid developers 🤣 - >> No need to buy paid source code while @wtfshourya is here 😍😍
