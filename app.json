@@ -1,10 +1,10 @@
 {
-    "name": "LazyPrincess",
-    "description": "LazyPrincess is a Super and Fully Advance Auto-filter-Bot - With Artificial Intelligence + File renaming + Url Shortning + Online FIle Streaming Feature. Thanks to LazyDeveloper for making it so cool.",
+    "name": "VibeCasm",
+    "description": "VibeCasm is a Super and Fully Advance Auto-filter-Bot - With Artificial Intelligence + File renaming + Url Shortning + Online FIle Streaming Feature. Thanks to LazyDeveloper for making it so cool.",
     "stack": "container",
     "keywords": [
-      "LazyDeveloperr",
-      "Lazy Princess Bot",
+      "VibeCasm",
+      "VibeCasm Bot",
       "auto-filter Bot",
       "Auto-Filter with File Stream",
       "Auto-filter with url-shortner",
@@ -15,10 +15,10 @@
       "Auto Filter bot by LazyDeveloperr",
       "Auto filter bot github",
       "Auto filter bot for heroku",
-      "Why I don't know LazyDeveloperr"
+      "Why I don't know VibeCasm"
     ],
-    "website": "https://github.com/LazyDeveloperr/LazyPrincess",
-    "repository": "https://github.com/LazyDeveloperr/LazyPrincess",
+    "website": "https://github.com/shouryamemer/LazyPrincess",
+    "repository": "https://github.com/shouryamemer/LazyPrincess",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
