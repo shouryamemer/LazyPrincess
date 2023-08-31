@@ -1,4 +1,4 @@
-# Credit @LazyDeveloper.
+    # Credit @LazyDeveloper.
 # Please Don't remove credit.
 # Born to make history @LazyDeveloper !
 # Thank you LazyDeveloper for helping us in this Journey
@@ -188,156 +188,35 @@ async def next_page(bot, query):
         # else:
         #     # create a new entry for the user in the download counts dictionary
         #     download_counts[query.from_user.id] = {'date': current_date, 'count': 1}d
-    if settings['button']:
+    if settings["button"]:
             if URL_MODE is True:
-                if query.from_user.id in ADMINS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif query.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif query.from_user.id in LZURL_PRIME_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                        ]
-                elif query.message.chat.id is not None and query.message.chat.id in LAZY_GROUPS:
-                    btn = [
-                    [
-                        InlineKeyboardButton(
-                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                        ),
-                    ]
-                    for file in files
-                    ]
+                if message.from_user.id in ADMINS:
+                    btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'),] for file in files ]
+			
+                elif message.from_user.id in LZURL_PRIME_USERS:
+                    btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'),] for file in files ]
+			
                 else:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")
-                            ),
-                        ]
-                        for file in files
-                    ]
-            else:
-                if query.from_user.id in ADMINS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif query.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                else:    
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
+                    btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", url=await get_shortlink(f"https://telegram.dog/{BOT_USERNAME}?start=files_{file.file_id}")),] for file in files ]
+            else    :
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'), ] for file in files]
 
     else:
         if URL_MODE is True:
-            if query.from_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.from_user.id in MY_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.from_user.id in LZURL_PRIME_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.message.chat.id is not None and query.message.chat.id in LAZY_GROUPS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+            if message.from_user.id in ADMINS:
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'),] for file in files ]
+		    
+            elif message.from_user.id in LZURL_PRIME_USERS:
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'),] for file in files ]
             else:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")),
-                        InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")),
-                    ]
-                    for file in files
-                ]
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", url=await get_shortlink(f"https://telegram.dog/{BOT_USERNAME}?start=files_{file.file_id}")),] for file in files ]
         else:
-            if query.form_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.form_user.id in MY_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+            if message.from_user.id in ADMINS:
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'),] for file in files ]
+		    
             else:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'), ] for file in files]
 
-    btn.insert(0,
-        [ 
-	    InlineKeyboardButton(text="⚡ʜᴏᴡ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ⚡", url='https://telegram.me/backupvibecasm')
-        ] 
-    )
 
     if 0 < offset <= 10:
         off_set = 0
@@ -414,20 +293,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     title = chat.title
                 except:
                     await query.message.edit_text("Make sure I'm present in your group!!", quote=True)
-                    return await query.answer('♥️ Love @LazyDeveloper ♥️')
+                    return await query.answer('♥️ Love @Mrkiller_1109 ♥️')
             else:
                 await query.message.edit_text(
                     "I'm not connected to any groups!\nCheck /connections or connect to any groups",
                     quote=True
                 )
-                return await query.answer('♥️ Thank You SHOURYA ♥️')
+                return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
 
         elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
             grp_id = query.message.chat.id
             title = query.message.chat.title
 
         else:
-            return await query.answer('♥️ Thank You SHOURYA ♥️')
+            return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
 
         st = await client.get_chat_member(grp_id, userid)
         if (st.status == enums.ChatMemberStatus.OWNER) or (str(userid) in ADMINS):
@@ -481,7 +360,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=keyboard,
             parse_mode=enums.ParseMode.MARKDOWN
         )
-        return await query.answer('♥️ Thank You SHOURYA ♥️')
+        return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
     elif "connectcb" in query.data:
         await query.answer()
 
@@ -502,7 +381,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
         else:
             await query.message.edit_text('Some error occurred!!', parse_mode=enums.ParseMode.MARKDOWN)
-        return await query.answer('♥️ Thank You SHOURYA ♥️')
+        return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
     elif "disconnect" in query.data:
         await query.answer()
 
@@ -525,7 +404,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"Some error occurred!!",
                 parse_mode=enums.ParseMode.MARKDOWN
             )
-        return await query.answer('♥️ Thank You SHOURYA ♥️')
+        return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
     elif "deletecb" in query.data:
         await query.answer()
 
@@ -543,7 +422,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 f"Some error occurred!!",
                 parse_mode=enums.ParseMode.MARKDOWN
             )
-        return await query.answer('♥️ Thank You SHOURYA ♥️')
+        return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
     elif query.data == "backcb":
         await query.answer()
 
@@ -554,7 +433,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit_text(
                 "There are no active connections!! Connect to some groups first.",
             )
-            return await query.answer('♥️ Thank You SHOURYA ♥️')
+            return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
         buttons = []
         for groupid in groupids:
             try:
@@ -609,10 +488,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                 return
             elif settings['botpm']:
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                 return
             else:
                 # Create the inline keyboard button with callback_data
@@ -630,9 +509,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('☣Unblock the bot sweetie!', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
         except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("Mere saamne jyada smart nhi banne ka sona 😒", show_alert=True)
@@ -671,23 +550,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕↖️ Add Me To Your Groups ↗️➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('➕↖️ Add Me To Your Groups ↗️➕', url=f'http://t.me/{BOT_USERNAME}?startgroup=true')
         ], [
             InlineKeyboardButton('🧞‍♀️ Search 🧐', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🔔 Updates 🤖', url='https://t.me/vibecasm1')
+            InlineKeyboardButton('🔔 Updates 🤖', url='https://t.me/Hpbot_update')
         ], [
             InlineKeyboardButton('🙆🏻 Help 🦾', callback_data='help'),
             InlineKeyboardButton('♥️ About ♥️', callback_data='about')
         ],[
-            InlineKeyboardButton('Watch Tutorial', url='https://youtube.com/LazyDeveloper')
+            InlineKeyboardButton('Watch Tutorial', url='https://youtube.com/@TechnicalHPgamer')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
+            text=script.START_TXT.format(query.from_user.mention, BOT_USERNAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-        await query.answer('♥️ Thank You SHOURYA ♥️')
+        await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
@@ -707,7 +586,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('🔔 Updates 🤖', url='https://t.me/vibecasm1'),
+            InlineKeyboardButton('🔔 Updates 🤖', url='https://t.me/Hpbot_update'),
             InlineKeyboardButton('♥️ Source', callback_data='source')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
@@ -785,14 +664,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
-                                                    InlineKeyboardButton('▶Watch Online', url=lazy_stream)]])  # web stream Link
+                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
             )
             await query.message.reply_text(
                 text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
                 quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
-                                                    InlineKeyboardButton('▶Watch Online', url=lazy_stream)]])  # web stream Link
+                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
             )
         except Exception as e:
             print(e)  # print the error message
@@ -807,9 +686,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
 
             ]]
             btn_lzdv = [
@@ -835,9 +714,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
             ]]
             btn_lzdv = [
                 [
@@ -862,9 +741,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
 
             ]]
             btn_lzdv = [
@@ -890,9 +769,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
             ]]
             btn_lzdv = [
                 [
@@ -917,9 +796,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
 
             ]]
             btn_lzdv = [
@@ -945,9 +824,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
             ]]
             btn_lzdv = [
                 [
@@ -972,9 +851,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"💛 Request More 💛", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/wtfshourya")
+                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/HP_Bot_discuss_group")
             ],[
-                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@shouryamemer")
+                InlineKeyboardButton(text=f"⚡️ Learn Bot Making 🦋", url=f"https://youtube.com/@TechnicalHPgamer")
 
             ]]
             btn_lzdv = [
@@ -1197,7 +1076,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if str(grp_id) != str(grpid):
             await query.message.edit("Your Active Connection Has Been Changed. Go To /settings.")
-            return await query.answer('♥️ Thank You SHOURYA ♥️')
+            return await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
 
         if status == "True":
             await save_group_settings(grpid, set_type, False)
@@ -1281,7 +1160,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('♥️ Thank You SHOURYA ♥️')
+    await query.answer('♥️ Thank You MrkillerDeveloper ♥️')
 
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
@@ -1306,7 +1185,7 @@ async def auto_filter(client, msg, spoll=False):
                                                                                                                                         ]))
                 
                 l = await message.reply_text(text=f"△ 𝙷𝚎𝚢 𝚜𝚘𝚗𝚊 `{message.from_user.first_name}` 😎,\n\nʏᴏᴜʀ ʀᴇQᴜᴇꜱᴛ ʜᴀꜱ ʙᴇᴇɴ ꜱᴇɴᴛ ᴛᴏ ᴏᴜʀ **ᴀᴅᴍɪɴ'ꜱ ᴅᴀꜱʜʙᴏᴀʀᴅ** !\nᴘʟᴇᴀꜱᴇ ᴋᴇᴇᴘ ꜱᴏᴍᴇ ᴘᴀᴛɪᴇɴᴄᴇ !\nᴛʜᴇʏ ᴡɪʟʟ ᴜᴘʟᴏᴀᴅ ɪᴛ ᴀꜱ ꜱᴏᴏɴ ᴀꜱ ᴘᴏꜱꜱɪʙʟᴇ.\n\n➟ 📝𝘾𝙤𝙣𝙩𝙚𝙣𝙩 𝙣𝙖𝙢𝙚 : `{search}`\n➟ 👮𝙍𝙚𝙦𝙪𝙚𝙨𝙩𝙚𝙙 𝘽𝙮 : `{message.from_user.first_name}`\n\n༺ @{MAIN_CHANNEL_USRNM} ༻\n\n🦋・‥☆𝘼𝘿𝙈𝙞𝙉 𝙨𝙪𝙥𝙥𝙤𝙧𝙩☆‥・🦋\n╰┈➤・☆ @{ADMIN_USRNM}\n╰┈➤・☆ @{ADMIN_USRNM}",
-                                                                                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("━ • │▌║  ᗩᗪᗪ ʍɛ 2 ᑌᖇ Ǥᖇᗝᑌᑭ  ║▌│ • ━", url=f'http://t.me/{temp.U_NAME}?startgroup=true')],[InlineKeyboardButton("✪ Dev Ch- ✪", url=f"https://t.me/{DEV_CHANNEL_USRNM}"), InlineKeyboardButton("✪ ＹＴ ✪", url=f"https://youtube.com/@{LAZY_YT_HANDLE}"), InlineKeyboardButton("✪ Main Ch- ✪", url=f"https://t.me/{MAIN_CHANNEL_USRNM}")],[InlineKeyboardButton("╚»♥️ Thank You ♥️«╝", callback_data="close_data")]]))
+                                                                                                       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("━ • │▌║  ᗩᗪᗪ ʍɛ 2 ᑌᖇ Ǥᖇᗝᑌᑭ  ║▌│ • ━", url=f'http://t.me/{BOT_USERNAME}?startgroup=true')],[InlineKeyboardButton("✪ Dev Ch- ✪", url=f"https://t.me/{DEV_CHANNEL_USRNM}"), InlineKeyboardButton("✪ ＹＴ ✪", url=f"https://youtube.com/@{LAZY_YT_HANDLE}"), InlineKeyboardButton("✪ Main Ch- ✪", url=f"https://t.me/{MAIN_CHANNEL_USRNM}")],[InlineKeyboardButton("╚»♥️ Thank You ♥️«╝", callback_data="close_data")]]))
                 await asyncio.sleep(12)
                 await l.delete()    
                 if settings["spell_check"]:
@@ -1323,153 +1202,33 @@ async def auto_filter(client, msg, spoll=False):
     if settings["button"]:
             if URL_MODE is True:
                 if message.from_user.id in ADMINS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif message.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
+                    btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'),] for file in files ]
+			
                 elif message.from_user.id in LZURL_PRIME_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                        ]
-                elif message.chat.id is not None and message.chat.id in LAZY_GROUPS:
-                    btn = [
-                    [
-                        InlineKeyboardButton(
-                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                        ),
-                    ]
-                    for file in files
-                    ]
+                    btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'),] for file in files ]
+			
                 else:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")
-                            ),
-                        ]
-                        for file in files
-                    ]
-            else:
-                if message.from_user.id in ADMINS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif message.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                else:    
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
+                    btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", url=await get_shortlink(f"https://telegram.dog/{BOT_USERNAME}?start=files_{file.file_id}")),] for file in files ]
+            else    :
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'), ] for file in files]
 
     else:
         if URL_MODE is True:
             if message.from_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif message.from_user.id in MY_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'),] for file in files ]
+		    
             elif message.from_user.id in LZURL_PRIME_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'{pre}#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'{pre}#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif message.chat.id is not None and message.chat.id in LAZY_GROUPS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'{pre}#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'{pre}#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'),] for file in files ]
             else:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}", url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")),
-                        InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")),
-                    ]
-                    for file in files
-                ]
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", url=await get_shortlink(f"https://telegram.dog/{BOT_USERNAME}?start=files_{file.file_id}")),] for file in files ]
         else:
-            if message.form_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif message.form_user.id in MY_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+            if message.from_user.id in ADMINS:
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'files#{file.file_id}'),] for file in files ]
+		    
             else:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'{pre}#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'{pre}#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
+                btn = [[InlineKeyboardButton(text=f"[{get_size(file.file_size)}]  {file.file_name}", callback_data=f'{pre}#{file.file_id}'), ] for file in files]
 
-    btn.insert(0,
-        [ 
-	    InlineKeyboardButton(text="⚡ʜᴏᴡ to ᴅᴏᴡɴʟᴏᴀᴅ⚡", url='https://telegram.me/vibecasm1'),
-        ] 
-    )
+    
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
@@ -1483,19 +1242,9 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
 
-    #waiting user to complete imdb process @LazyDeveloperr
-    user = message.from_user
-    full_name = user.first_name + " " + user.last_name if user.last_name else user.first_name
-    waiting_message = await message.reply_text(f"Setting up your request {full_name}...")
-    await asyncio.sleep(1)
-    await waiting_message.delete()
-    serve_message = await message.reply_text(f"🥰")
-    fetching_message = await message.reply_text(f"Fetching details from server {full_name}...")
-
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
-    await serve_message.delete()
-    await fetching_message.delete()
+
     # waiting overs here @LazyDeveloperr
 
     if imdb:
@@ -1603,7 +1352,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("Hey Sona! The requested content is currently unavailable in our database, have some patience 🙂 - our great admin will upload it as soon as possible \n\n               **or**\n\nDiscuss issue with admin here 👉  <a href='https://t.me/Discusss_Here'>Discuss Here</a> ♥️ ")
+        k = await msg.reply("Hey Sona! The requested content is currently unavailable in our database, have some patience 🙂 - our great admin will upload it as soon as possible \n\n               **or**\n\nDiscuss issue with admin here 👉  <a href='https://t.me/HP_Bot_discuss_group'>Discuss Here</a> ♥️ ")
         await asyncio.sleep(10)
         await k.delete()
         return
@@ -1615,7 +1364,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("Hey sona, did you checked your spelling properly, here are some suggestions for you, please check if your requested content match anyone of these following suggestions...\n\n                 **or**\n\nDiscuss issue with admin here 👉 <a href='https://t.me/Discusss_Here'>Discuss Here</a> ♥️ ",
+    await msg.reply("Hey sona, did you checked your spelling properly, here are some suggestions for you, please check if your requested content match anyone of these following suggestions...\n\n                 **or**\n\nDiscuss issue with admin here 👉 <a href='https://t.me/HP_Bot_discuss_group'>Discuss Here</a> ♥️ ",
                     reply_markup=InlineKeyboardMarkup(btn))
 
 
@@ -1666,3 +1415,5 @@ async def manual_filters(client, message, text=False):
                 break
     else:
         return False
+
+    
